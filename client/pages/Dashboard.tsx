@@ -1,19 +1,8 @@
 import { MainLayout } from "@/components/layout/MainLayout";
 import { KPICard } from "@/components/dashboard/KPICard";
 import { Card } from "@/components/ui/card";
-import {
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Legend,
-} from "recharts";
+import { SimpleBarChart } from "@/components/charts/SimpleBarChart";
+import { SimplePieChart } from "@/components/charts/SimplePieChart";
 import {
   Package,
   AlertCircle,
@@ -36,8 +25,6 @@ const requestsByStatusData = [
   { name: "Repaired", value: 28, color: "#22c55e" },
   { name: "Scrap", value: 6, color: "#ef4444" },
 ];
-
-const COLORS = ["#999999", "#3b82f6", "#22c55e", "#ef4444"];
 
 export default function Dashboard() {
   return (
