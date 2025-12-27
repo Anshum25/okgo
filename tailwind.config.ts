@@ -57,6 +57,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Status colors for GearGuard
+        status: {
+          new: "hsl(var(--status-new))",
+          "in-progress": "hsl(var(--status-in-progress))",
+          repaired: "hsl(var(--status-repaired))",
+          scrap: "hsl(var(--status-scrap))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
