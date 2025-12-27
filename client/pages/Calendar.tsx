@@ -2,12 +2,7 @@ import { useState } from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  Plus,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Plus } from "lucide-react";
 
 interface MaintenanceEvent {
   id: string;
@@ -107,11 +102,15 @@ export default function Calendar() {
   });
 
   const prevMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1),
+    );
   };
 
   const nextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1),
+    );
   };
 
   const getEventsForDate = (day: number) => {
@@ -148,20 +147,14 @@ export default function Calendar() {
             <Card className="border-0 shadow-sm p-6">
               {/* Calendar Header */}
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-foreground">{monthName}</h2>
+                <h2 className="text-xl font-bold text-foreground">
+                  {monthName}
+                </h2>
                 <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={prevMonth}
-                  >
+                  <Button variant="outline" size="icon" onClick={prevMonth}>
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={nextMonth}
-                  >
+                  <Button variant="outline" size="icon" onClick={nextMonth}>
                     <ChevronRight className="h-4 w-4" />
                   </Button>
                 </div>
@@ -169,14 +162,16 @@ export default function Calendar() {
 
               {/* Day Names */}
               <div className="grid grid-cols-7 gap-2 mb-4">
-                {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-                  <div
-                    key={day}
-                    className="text-center font-semibold text-muted-foreground text-sm py-2"
-                  >
-                    {day}
-                  </div>
-                ))}
+                {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
+                  (day) => (
+                    <div
+                      key={day}
+                      className="text-center font-semibold text-muted-foreground text-sm py-2"
+                    >
+                      {day}
+                    </div>
+                  ),
+                )}
               </div>
 
               {/* Calendar Days */}
@@ -193,7 +188,9 @@ export default function Calendar() {
                   return (
                     <button
                       key={day}
-                      onClick={() => setSelectedDate(isSelected ? null : dateStr)}
+                      onClick={() =>
+                        setSelectedDate(isSelected ? null : dateStr)
+                      }
                       className={`aspect-square rounded-lg border-2 p-2 text-sm transition-colors ${
                         isSelected
                           ? "border-primary bg-primary/10"
@@ -203,7 +200,9 @@ export default function Calendar() {
                       }`}
                     >
                       <div className="flex flex-col items-start h-full">
-                        <span className="font-semibold text-foreground">{day}</span>
+                        <span className="font-semibold text-foreground">
+                          {day}
+                        </span>
                         {dayEvents.length > 0 && (
                           <div className="flex gap-1 flex-wrap mt-1">
                             {dayEvents.slice(0, 2).map((event, idx) => (
@@ -232,11 +231,14 @@ export default function Calendar() {
             <Card className="border-0 shadow-sm p-6">
               <h3 className="text-lg font-semibold text-foreground mb-4">
                 {selectedDate
-                  ? new Date(selectedDate + "T00:00:00").toLocaleDateString("default", {
-                      weekday: "long",
-                      month: "long",
-                      day: "numeric",
-                    })
+                  ? new Date(selectedDate + "T00:00:00").toLocaleDateString(
+                      "default",
+                      {
+                        weekday: "long",
+                        month: "long",
+                        day: "numeric",
+                      },
+                    )
                   : "Select a Date"}
               </h3>
 
@@ -244,7 +246,9 @@ export default function Calendar() {
                 {getEventsForSelectedDate().length === 0 ? (
                   <div className="text-center py-8">
                     <p className="text-muted-foreground text-sm">
-                      {selectedDate ? "No maintenance scheduled" : "Click a date to view events"}
+                      {selectedDate
+                        ? "No maintenance scheduled"
+                        : "Click a date to view events"}
                     </p>
                   </div>
                 ) : (
@@ -263,7 +267,9 @@ export default function Calendar() {
                             {event.equipment}
                           </p>
                           <div className="mt-2 flex flex-wrap gap-1">
-                            <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold ${event.color}`}>
+                            <span
+                              className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold ${event.color}`}
+                            >
                               {event.team}
                             </span>
                             <span className="inline-flex items-center rounded-full bg-muted px-2 py-1 text-xs text-muted-foreground">
@@ -286,7 +292,9 @@ export default function Calendar() {
 
         {/* Upcoming Events */}
         <Card className="border-0 shadow-sm p-6">
-          <h3 className="text-lg font-semibold text-foreground mb-4">Upcoming Scheduled Maintenance</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-4">
+            Upcoming Scheduled Maintenance
+          </h3>
           <div className="space-y-3">
             {mockEvents.slice(0, 5).map((event) => (
               <div
@@ -297,17 +305,24 @@ export default function Calendar() {
                   <div className={`w-1 h-10 rounded-full ${event.color}`} />
                   <div>
                     <p className="font-medium text-foreground">{event.title}</p>
-                    <p className="text-sm text-muted-foreground">{event.equipment}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {event.equipment}
+                    </p>
                   </div>
                 </div>
                 <div className="text-right">
                   <p className="font-semibold text-foreground">
-                    {new Date(event.date + "T00:00:00").toLocaleDateString("default", {
-                      month: "short",
-                      day: "numeric",
-                    })}
+                    {new Date(event.date + "T00:00:00").toLocaleDateString(
+                      "default",
+                      {
+                        month: "short",
+                        day: "numeric",
+                      },
+                    )}
                   </p>
-                  <p className="text-xs text-muted-foreground">{event.technician}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {event.technician}
+                  </p>
                 </div>
               </div>
             ))}

@@ -33,9 +33,12 @@ export function KPICard({
             {(description || trend) && (
               <div className="mt-2 flex items-center gap-2">
                 {trend && trendValue !== undefined && (
-                  <div className={cn("flex items-center gap-1 text-xs font-semibold", 
-                    trend === "up" ? "text-green-600" : "text-red-600"
-                  )}>
+                  <div
+                    className={cn(
+                      "flex items-center gap-1 text-xs font-semibold",
+                      trend === "up" ? "text-green-600" : "text-red-600",
+                    )}
+                  >
                     {trend === "up" ? (
                       <TrendingUp className="h-3 w-3" />
                     ) : (

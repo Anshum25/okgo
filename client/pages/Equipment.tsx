@@ -136,19 +136,25 @@ const mockEquipment: Equipment[] = [
 
 export default function Equipment() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
+  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(
+    null,
+  );
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
-  const [groupBy, setGroupBy] = useState<"none" | "department" | "employee">("none");
-  const [statusFilter, setStatusFilter] = useState<"all" | "active" | "scrapped">("active");
+  const [groupBy, setGroupBy] = useState<"none" | "department" | "employee">(
+    "none",
+  );
+  const [statusFilter, setStatusFilter] = useState<
+    "all" | "active" | "scrapped"
+  >("active");
 
   // Get unique values for filters
   const departments = useMemo(
     () => [...new Set(mockEquipment.map((e) => e.department))],
-    []
+    [],
   );
   const teams = useMemo(
     () => [...new Set(mockEquipment.map((e) => e.maintenanceTeam))],
-    []
+    [],
   );
 
   // Filter equipment
@@ -156,12 +162,19 @@ export default function Equipment() {
     return mockEquipment.filter((equipment) => {
       const matchSearch =
         equipment.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        equipment.serialNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        equipment.assignedEmployee.toLowerCase().includes(searchTerm.toLowerCase());
+        equipment.serialNumber
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        equipment.assignedEmployee
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
 
-      const matchDepartment = !selectedDepartment || equipment.department === selectedDepartment;
-      const matchTeam = !selectedTeam || equipment.maintenanceTeam === selectedTeam;
-      const matchStatus = statusFilter === "all" || equipment.status === statusFilter;
+      const matchDepartment =
+        !selectedDepartment || equipment.department === selectedDepartment;
+      const matchTeam =
+        !selectedTeam || equipment.maintenanceTeam === selectedTeam;
+      const matchStatus =
+        statusFilter === "all" || equipment.status === statusFilter;
 
       return matchSearch && matchDepartment && matchTeam && matchStatus;
     });
@@ -177,7 +190,9 @@ export default function Equipment() {
 
     filteredEquipment.forEach((equipment) => {
       const groupKey =
-        groupBy === "department" ? equipment.department : equipment.assignedEmployee;
+        groupBy === "department"
+          ? equipment.department
+          : equipment.assignedEmployee;
 
       if (!groups[groupKey]) {
         groups[groupKey] = [];
@@ -200,7 +215,8 @@ export default function Equipment() {
           <div>
             <h1 className="text-3xl font-bold text-foreground">Equipment</h1>
             <p className="mt-1 text-muted-foreground">
-              Manage your equipment inventory and assets ({filteredEquipment.length} items)
+              Manage your equipment inventory and assets (
+              {filteredEquipment.length} items)
             </p>
           </div>
           <Button className="gap-2">
@@ -229,7 +245,10 @@ export default function Equipment() {
                 <label className="text-sm font-medium text-muted-foreground mb-2 block">
                   Status
                 </label>
-                <Select value={statusFilter} onValueChange={(value: any) => setStatusFilter(value)}>
+                <Select
+                  value={statusFilter}
+                  onValueChange={(value: any) => setStatusFilter(value)}
+                >
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
@@ -247,7 +266,9 @@ export default function Equipment() {
                 </label>
                 <Select
                   value={selectedDepartment || "all"}
-                  onValueChange={(value) => setSelectedDepartment(value === "all" ? null : value)}
+                  onValueChange={(value) =>
+                    setSelectedDepartment(value === "all" ? null : value)
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue />
@@ -269,7 +290,9 @@ export default function Equipment() {
                 </label>
                 <Select
                   value={selectedTeam || "all"}
-                  onValueChange={(value) => setSelectedTeam(value === "all" ? null : value)}
+                  onValueChange={(value) =>
+                    setSelectedTeam(value === "all" ? null : value)
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue />
@@ -289,7 +312,10 @@ export default function Equipment() {
                 <label className="text-sm font-medium text-muted-foreground mb-2 block">
                   Group By
                 </label>
-                <Select value={groupBy} onValueChange={(value: any) => setGroupBy(value)}>
+                <Select
+                  value={groupBy}
+                  onValueChange={(value: any) => setGroupBy(value)}
+                >
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
@@ -314,7 +340,8 @@ export default function Equipment() {
                     <Wrench className="h-4 w-4 text-primary" />
                     {group.label}
                     <span className="ml-auto text-sm font-normal text-muted-foreground">
-                      {group.items.length} item{group.items.length !== 1 ? "s" : ""}
+                      {group.items.length} item
+                      {group.items.length !== 1 ? "s" : ""}
                     </span>
                   </h3>
                 </div>
@@ -325,26 +352,46 @@ export default function Equipment() {
                   <Table>
                     <TableHeader>
                       <TableRow className="bg-secondary hover:bg-secondary">
-                        <TableHead className="font-semibold">Equipment Name</TableHead>
-                        <TableHead className="font-semibold">Serial Number</TableHead>
-                        <TableHead className="font-semibold">Department</TableHead>
-                        <TableHead className="font-semibold">Assigned Employee</TableHead>
-                        <TableHead className="font-semibold">Maintenance Team</TableHead>
-                        <TableHead className="font-semibold">Location</TableHead>
+                        <TableHead className="font-semibold">
+                          Equipment Name
+                        </TableHead>
+                        <TableHead className="font-semibold">
+                          Serial Number
+                        </TableHead>
+                        <TableHead className="font-semibold">
+                          Department
+                        </TableHead>
+                        <TableHead className="font-semibold">
+                          Assigned Employee
+                        </TableHead>
+                        <TableHead className="font-semibold">
+                          Maintenance Team
+                        </TableHead>
+                        <TableHead className="font-semibold">
+                          Location
+                        </TableHead>
                         <TableHead className="font-semibold">Status</TableHead>
-                        <TableHead className="text-right font-semibold">Actions</TableHead>
+                        <TableHead className="text-right font-semibold">
+                          Actions
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {group.items.length === 0 ? (
                         <TableRow>
-                          <TableCell colSpan={8} className="text-center py-8 text-muted-foreground">
+                          <TableCell
+                            colSpan={8}
+                            className="text-center py-8 text-muted-foreground"
+                          >
                             No equipment found matching your filters.
                           </TableCell>
                         </TableRow>
                       ) : (
                         group.items.map((equipment) => (
-                          <TableRow key={equipment.id} className="hover:bg-secondary/50">
+                          <TableRow
+                            key={equipment.id}
+                            className="hover:bg-secondary/50"
+                          >
                             <TableCell className="font-medium text-foreground">
                               {equipment.name}
                             </TableCell>
@@ -373,7 +420,9 @@ export default function Equipment() {
                                     : "bg-red-100 text-red-700"
                                 }`}
                               >
-                                {equipment.status === "active" ? "Active" : "Scrapped"}
+                                {equipment.status === "active"
+                                  ? "Active"
+                                  : "Scrapped"}
                               </span>
                             </TableCell>
                             <TableCell className="text-right">

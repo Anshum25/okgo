@@ -48,7 +48,7 @@ export function Sidebar({ open = true }: SidebarProps) {
     <aside
       className={cn(
         "fixed left-0 top-16 z-30 h-[calc(100vh-4rem)] border-r border-border bg-white transition-all duration-300 lg:relative lg:top-0 lg:z-0 lg:h-screen",
-        open ? "w-64" : "-translate-x-full lg:translate-x-0 lg:w-64"
+        open ? "w-64" : "-translate-x-full lg:translate-x-0 lg:w-64",
       )}
     >
       <nav className="flex flex-col gap-1 p-4">
@@ -64,7 +64,7 @@ export function Sidebar({ open = true }: SidebarProps) {
                 "flex items-center justify-between gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-all",
                 isActive
                   ? "bg-primary text-primary-foreground"
-                  : "text-foreground hover:bg-secondary text-muted-foreground hover:text-foreground"
+                  : "text-foreground hover:bg-secondary text-muted-foreground hover:text-foreground",
               )}
             >
               <div className="flex items-center gap-3">

@@ -23,8 +23,12 @@ export function Header({ onToggleSidebar }: HeaderProps) {
               G
             </div>
             <div>
-              <h1 className="text-lg font-semibold text-foreground">GearGuard</h1>
-              <p className="text-xs text-muted-foreground">Maintenance Tracker</p>
+              <h1 className="text-lg font-semibold text-foreground">
+                GearGuard
+              </h1>
+              <p className="text-xs text-muted-foreground">
+                Maintenance Tracker
+              </p>
             </div>
           </div>
         </div>
@@ -33,7 +37,9 @@ export function Header({ onToggleSidebar }: HeaderProps) {
           <div className="hidden sm:flex items-center gap-3 text-sm">
             <div className="flex flex-col items-end">
               <p className="font-medium text-foreground">Admin User</p>
-              <p className="text-xs text-muted-foreground">Maintenance Manager</p>
+              <p className="text-xs text-muted-foreground">
+                Maintenance Manager
+              </p>
             </div>
             <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-purple-700 flex items-center justify-center text-white text-sm font-semibold">
               A

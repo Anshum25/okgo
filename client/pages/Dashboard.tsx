@@ -104,7 +104,9 @@ export default function Dashboard() {
 
         {/* Recent Activity */}
         <Card className="border-0 shadow-sm p-6">
-          <h2 className="mb-4 text-lg font-semibold text-foreground">Recent Activity</h2>
+          <h2 className="mb-4 text-lg font-semibold text-foreground">
+            Recent Activity
+          </h2>
           <div className="space-y-3">
             {[
               {
@@ -131,11 +133,17 @@ export default function Dashboard() {
                 className="flex items-center justify-between border-b border-border pb-3 last:border-0"
               >
                 <div>
-                  <p className="font-medium text-foreground">{activity.title}</p>
-                  <p className="text-sm text-muted-foreground">{activity.equipment}</p>
+                  <p className="font-medium text-foreground">
+                    {activity.title}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {activity.equipment}
+                  </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-sm text-muted-foreground">{activity.time}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {activity.time}
+                  </span>
                   <span
                     className={`rounded-full px-2 py-1 text-xs font-semibold ${
                       activity.status === "In Progress"

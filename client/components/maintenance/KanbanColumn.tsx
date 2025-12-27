@@ -72,7 +72,7 @@ export function KanbanColumn({
         className={cn(
           "min-h-96 rounded-lg border-2 border-dashed p-4 transition-colors",
           config.bgColor,
-          "border-gray-300 hover:border-primary"
+          "border-gray-300 hover:border-primary",
         )}
       >
         <div className="space-y-3">

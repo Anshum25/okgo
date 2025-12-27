@@ -56,7 +56,13 @@ export function SimpleBarChart({ data, height = 300 }: SimpleBarChartProps) {
           );
         })}
       </div>
-      <div style={{ display: "flex", justifyContent: "space-around", paddingTop: "8px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          paddingTop: "8px",
+        }}
+      >
         {data.map((item, idx) => (
           <div
             key={idx}

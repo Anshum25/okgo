@@ -127,17 +127,25 @@ export default function Reports() {
                 <div className={stat.bgColor + " p-6"}>
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-muted-foreground">{stat.label}</p>
-                      <p className="mt-2 text-3xl font-bold text-foreground">{stat.value}</p>
+                      <p className="text-sm font-medium text-muted-foreground">
+                        {stat.label}
+                      </p>
+                      <p className="mt-2 text-3xl font-bold text-foreground">
+                        {stat.value}
+                      </p>
                       <div className="mt-2 flex items-center gap-2">
                         <TrendingUp
                           className={`h-3 w-3 ${
-                            stat.trend === "up" ? "text-green-600" : "text-red-600"
+                            stat.trend === "up"
+                              ? "text-green-600"
+                              : "text-red-600"
                           }`}
                         />
                         <span
                           className={`text-xs font-semibold ${
-                            stat.trend === "up" ? "text-green-600" : "text-red-600"
+                            stat.trend === "up"
+                              ? "text-green-600"
+                              : "text-red-600"
                           }`}
                         >
                           {stat.change}
@@ -204,7 +212,9 @@ export default function Reports() {
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Team Performance */}
           <Card className="border-0 shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Team Performance</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Team Performance
+            </h3>
             <div className="space-y-4">
               {[
                 { name: "Electrical", score: 92, color: "bg-blue-500" },
@@ -214,8 +224,12 @@ export default function Reports() {
               ].map((team) => (
                 <div key={team.name}>
                   <div className="flex items-center justify-between mb-1">
-                    <p className="text-sm font-medium text-foreground">{team.name}</p>
-                    <p className="text-sm font-semibold text-foreground">{team.score}%</p>
+                    <p className="text-sm font-medium text-foreground">
+                      {team.name}
+                    </p>
+                    <p className="text-sm font-semibold text-foreground">
+                      {team.score}%
+                    </p>
                   </div>
                   <div className="w-full bg-secondary rounded-full h-2">
                     <div
@@ -230,20 +244,46 @@ export default function Reports() {
 
           {/* Equipment Status */}
           <Card className="border-0 shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Equipment Status</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Equipment Status
+            </h3>
             <div className="space-y-3">
               {[
-                { label: "Operational", value: 142, color: "text-green-600", bg: "bg-green-50" },
-                { label: "Maintenance", value: 8, color: "text-blue-600", bg: "bg-blue-50" },
-                { label: "Repair", value: 3, color: "text-orange-600", bg: "bg-orange-50" },
-                { label: "Scrapped", value: 2, color: "text-red-600", bg: "bg-red-50" },
+                {
+                  label: "Operational",
+                  value: 142,
+                  color: "text-green-600",
+                  bg: "bg-green-50",
+                },
+                {
+                  label: "Maintenance",
+                  value: 8,
+                  color: "text-blue-600",
+                  bg: "bg-blue-50",
+                },
+                {
+                  label: "Repair",
+                  value: 3,
+                  color: "text-orange-600",
+                  bg: "bg-orange-50",
+                },
+                {
+                  label: "Scrapped",
+                  value: 2,
+                  color: "text-red-600",
+                  bg: "bg-red-50",
+                },
               ].map((status) => (
                 <div
                   key={status.label}
                   className={`flex items-center justify-between p-3 rounded-lg ${status.bg}`}
                 >
-                  <p className="text-sm font-medium text-foreground">{status.label}</p>
-                  <p className={`text-lg font-bold ${status.color}`}>{status.value}</p>
+                  <p className="text-sm font-medium text-foreground">
+                    {status.label}
+                  </p>
+                  <p className={`text-lg font-bold ${status.color}`}>
+                    {status.value}
+                  </p>
                 </div>
               ))}
             </div>
@@ -251,7 +291,9 @@ export default function Reports() {
 
           {/* Maintenance Schedule */}
           <Card className="border-0 shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Upcoming Maintenance</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">
+              Upcoming Maintenance
+            </h3>
             <div className="space-y-3">
               {[
                 { task: "Pump Maintenance", date: "Dec 28", icon: "🔧" },
@@ -265,7 +307,9 @@ export default function Reports() {
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-lg">{item.icon}</span>
-                    <p className="text-sm font-medium text-foreground">{item.task}</p>
+                    <p className="text-sm font-medium text-foreground">
+                      {item.task}
+                    </p>
                   </div>
                   <p className="text-xs text-muted-foreground">{item.date}</p>
                 </div>
@@ -276,27 +320,43 @@ export default function Reports() {
 
         {/* Summary Section */}
         <Card className="border-0 shadow-sm p-6">
-          <h3 className="text-lg font-semibold text-foreground mb-4">Report Summary</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-4">
+            Report Summary
+          </h3>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Total Maintenance Hours</p>
+              <p className="text-sm text-muted-foreground mb-1">
+                Total Maintenance Hours
+              </p>
               <p className="text-2xl font-bold text-foreground">248.5 hrs</p>
-              <p className="text-xs text-muted-foreground mt-1">+12% from last period</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                +12% from last period
+              </p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground mb-1">Total Cost</p>
               <p className="text-2xl font-bold text-foreground">$54,100</p>
-              <p className="text-xs text-muted-foreground mt-1">-5% from last period</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                -5% from last period
+              </p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Equipment Uptime</p>
+              <p className="text-sm text-muted-foreground mb-1">
+                Equipment Uptime
+              </p>
               <p className="text-2xl font-bold text-foreground">98.7%</p>
-              <p className="text-xs text-muted-foreground mt-1">+0.2% from last period</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                +0.2% from last period
+              </p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Preventive vs Corrective</p>
+              <p className="text-sm text-muted-foreground mb-1">
+                Preventive vs Corrective
+              </p>
               <p className="text-2xl font-bold text-foreground">52% / 48%</p>
-              <p className="text-xs text-muted-foreground mt-1">Optimal balance maintained</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Optimal balance maintained
+              </p>
             </div>
           </div>
         </Card>

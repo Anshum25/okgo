@@ -58,7 +58,12 @@ export function SimplePieChart({ data, size = 200 }: SimplePieChartProps) {
       <svg width={size} height={size} style={{ maxWidth: "100%" }}>
         {slices.map((slice, idx) => (
           <g key={idx}>
-            <path d={slice.path} fill={slice.color} stroke="white" strokeWidth="2" />
+            <path
+              d={slice.path}
+              fill={slice.color}
+              stroke="white"
+              strokeWidth="2"
+            />
             <text
               x={slice.labelX}
               y={slice.labelY}

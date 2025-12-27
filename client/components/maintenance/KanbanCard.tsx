@@ -29,7 +29,7 @@ export function KanbanCard({
       onDragStart={(e) => onDragStart(e, id)}
       className={cn(
         "cursor-move space-y-3 border-0 shadow-sm p-4 hover:shadow-md transition-shadow",
-        isOverdue && "border-l-4 border-l-red-500"
+        isOverdue && "border-l-4 border-l-red-500",
       )}
     >
       {isOverdue && (

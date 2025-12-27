@@ -161,8 +161,8 @@ export default function Maintenance() {
       requests.map((r) =>
         r.id === draggedCard
           ? { ...r, status: newStatus as Request["status"] }
-          : r
-      )
+          : r,
+      ),
     );
 
     setDraggedCard(null);
@@ -178,7 +178,9 @@ export default function Maintenance() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Maintenance Requests</h1>
+            <h1 className="text-3xl font-bold text-foreground">
+              Maintenance Requests
+            </h1>
             <p className="mt-1 text-muted-foreground">
               Manage and track maintenance work across your equipment
             </p>

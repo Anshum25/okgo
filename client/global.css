@@ -55,10 +55,10 @@
     --sidebar-ring: 263 80% 40%;
 
     /* Status Colors for GearGuard */
-    --status-new: 0 0% 60%;           /* Grey */
+    --status-new: 0 0% 60%; /* Grey */
     --status-in-progress: 217 91% 60%; /* Blue */
-    --status-repaired: 142 71% 45%;    /* Green */
-    --status-scrap: 0 84% 60%;         /* Red */
+    --status-repaired: 142 71% 45%; /* Green */
+    --status-scrap: 0 84% 60%; /* Red */
   }
 
   .dark {
