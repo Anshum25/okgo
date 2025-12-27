@@ -85,21 +85,7 @@ export default function Dashboard() {
                 Requests by Team
               </h2>
             </div>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={requestsByTeamData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                <XAxis dataKey="name" stroke="#999" />
-                <YAxis stroke="#999" />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#fff",
-                    border: "1px solid #e5e7eb",
-                    borderRadius: "0.5rem",
-                  }}
-                />
-                <Bar dataKey="value" fill="#7c3aed" radius={[8, 8, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
+            <SimpleBarChart data={requestsByTeamData} height={300} />
           </Card>
 
           {/* Requests by Status */}
@@ -110,31 +96,9 @@ export default function Dashboard() {
                 Requests by Status
               </h2>
             </div>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={requestsByStatusData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name, value }) => `${name}: ${value}`}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {requestsByStatusData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#fff",
-                    border: "1px solid #e5e7eb",
-                    borderRadius: "0.5rem",
-                  }}
-                />
-              </PieChart>
-            </ResponsiveContainer>
+            <div className="flex justify-center">
+              <SimplePieChart data={requestsByStatusData} size={280} />
+            </div>
           </Card>
         </div>
 
